@@ -20,7 +20,7 @@ class Stack{
 	void pop(){
 		list->popFront();
 	}
-	int size(){
+	int size()const{
 		return list->size();
 	}
 	

@@ -145,11 +145,11 @@ public:
 		*_size = 0;
 	}
 	
-	int size(){
+	int size()const{
 		return *_size;
 	}
 	
-	bool isEmpty(){
+	bool isEmpty()const {
 		return head == tail;
 	}
 

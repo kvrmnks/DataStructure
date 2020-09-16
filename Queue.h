@@ -14,7 +14,10 @@ public:
 		list = new LinkedList<value_type>(*(b.list));
 		return *this;	
 	}
-	int size(){
+	~Queue(){
+		delete list;
+	}
+	int size()const {
 		return list->size();	
 	}
 	value_type front(){
@@ -26,6 +29,9 @@ public:
 	
 	void pop(){
 		list->popFront();
+	}
+	void clear(){
+		list->clear();
 	}
 };
 
