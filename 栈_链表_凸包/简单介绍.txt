@@ -1,0 +1,15 @@
+LinkedList.h 是之前写的基础链表
+Queue.h 是基于链表的队列实现
+Stack.h 是基于链表的栈实现
+
+graham.cpp 是基于栈的graham算法实现 
+gift_wrapping.cpp 是基于队列的gift wrapping算法实现
+
+convex_nodes_generator.cpp 用于生成测试凸包的输入数据
+编译运行 graham.cpp 和 gift_wrapping.cpp 可获得运行结果
+
+node_display.py 用于对凸包计算结果进行简单可视化
+
+convex_hull文件夹下 为可用鼠标点击的动态计算凸包的程序
+运行Debug目录下的wqq.exe 
+用windows api写的 我也不知道在别的电脑上能不能运行就录了一段屏convex_hull录屏.exe
