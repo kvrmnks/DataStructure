@@ -3,6 +3,7 @@
 #include<fstream>
 #include<cmath>
 using namespace std;
+using namespace yyx;
 struct Vector{
 	double x,y;
 	Vector(){}
