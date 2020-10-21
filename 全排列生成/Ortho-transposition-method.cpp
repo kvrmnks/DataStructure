@@ -6,6 +6,7 @@ struct Point{
 	int number, arror;
 };
 int main(){
+	freopen("1.out","w",stdout);
 	int n;
 	cin>>n;
 	Point *data = new Point[n+1];
@@ -23,11 +24,11 @@ int main(){
 		}
 		assert(data[pos_2].arror != RIGHT_ARROR);
 		cnt ++;
-		cout << "******************\n";
-		for(int i=1;i<=n;i++){
-			cout << data[i].arror << " ";
-		}
-		cout << endl;
+//		cout << "******************\n";
+//		for(int i=1;i<=n;i++){
+//			cout << data[i].arror << " ";
+//		}
+//		cout << endl;
 		for(int i=1;i<=n;i++){
 			cout << data[i].number << " ";
 		}
@@ -52,7 +53,7 @@ int main(){
 		swap(data[movable_pos], data[point_pos]);
 		
 	}
-	cout << "there are totally " << cnt << " anss\n";
-	system("pause");
+//	cout << "there are totally " << cnt << " anss\n";
+//	system("pause");
 	return 0;
 }
