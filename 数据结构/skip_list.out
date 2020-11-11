@@ -1,0 +1,17 @@
+\BOOKMARK [2][]{Outline0.1}{简介}{}% 1
+\BOOKMARK [3][]{Outline0.1.1.2}{Skip List是什么}{Outline0.1}% 2
+\BOOKMARK [3][]{Outline0.1.2.4}{Skip List有哪些优势}{Outline0.1}% 3
+\BOOKMARK [3][]{Outline0.1.3.5}{Skip List是怎么实现的}{Outline0.1}% 4
+\BOOKMARK [2][]{Outline0.2}{基操}{}% 5
+\BOOKMARK [3][]{Outline0.2.1.6}{插入}{Outline0.2}% 6
+\BOOKMARK [3][]{Outline0.2.2.8}{查找}{Outline0.2}% 7
+\BOOKMARK [3][]{Outline0.2.3.9}{删除}{Outline0.2}% 8
+\BOOKMARK [3][]{Outline0.2.4.10}{rank}{Outline0.2}% 9
+\BOOKMARK [2][]{Outline0.3}{好玩的东西}{}% 10
+\BOOKMARK [3][]{Outline0.3.1.15}{来想想怎么改进链表}{Outline0.3}% 11
+\BOOKMARK [3][]{Outline0.3.2.27}{无内鬼，来点复杂度知识}{Outline0.3}% 12
+\BOOKMARK [3][]{Outline0.3.3.34}{高级操作}{Outline0.3}% 13
+\BOOKMARK [2][]{Outline0.4}{空间复杂度}{}% 14
+\BOOKMARK [2][]{Outline0.5}{时间复杂度}{}% 15
+\BOOKMARK [3][]{Outline0.5.1.52}{其他操作的复杂度}{Outline0.5}% 16
+\BOOKMARK [2][]{Outline0.6}{}{}% 17
