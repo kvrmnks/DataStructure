@@ -1,29 +1,72 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct edge{
-	int v,w,nx;
+
+const int INF = 0x7FFFFFFF;
+
+class Graph{
+private:
+	struct edge{
+		int v,w,nx;
+	};
+	struct node{
+		int d,p;
+		bool operator < (const node &o)const{
+			return this->d > o.d;
+		}
+	};
+	vector<edge> E;
+	map<int, int> h, dis, pre;
+public:
+	void setVertex(int);
+	Graph();
+	Graph(const Graph &);
+	Graph &operator = (Graph &);
+	void Dijkstra(int);
+	void addEdge(int, int, int);
+	int getDistance(int);
+	int getPreviousVertex(int);
+	void clear();
+	
 };
-edge *E;
-int tot, *h, *pre;
-void add_edge(int x, int y,int c){
-	E[++tot] = (edge){y, c, h[x]};
-	h[x] = tot;
+
+Graph::Graph(){
+	E.push_back((edge){0,0,0});
 }
 
-struct node{
-	int d,p;
-	bool operator < (const node &o)const{
-		return this->d > o.d;
-	}
-};
-priority_queue<node> Q;
-int *dis;
-bool *vis;
-int n, m, s;
-void dij(int s){
-	for(int i=1;i<=n;i++){
-		dis[i] = 0x7fffffff;
-		vis[i] = false;
+void Graph::clear(){
+	E.clear();
+	h.clear();
+	dis.clear();
+	pre.clear();
+}
+
+Graph::Graph(const Graph &x){
+	E = x.E;
+	h = x.h;
+	dis = x.dis;
+	pre = x.pre;
+}
+
+Graph &Graph::operator = (Graph &x){
+	E = x.E;
+	h = x.h;
+	dis = x.dis;
+	pre = x.pre;
+	return *this;
+}
+
+void Graph::setVertex(int x){
+	if(h.count(x) == 0)
+		h[x] = 0;
+}
+
+void Graph::Dijkstra(int s){
+	priority_queue<node> Q;
+	map<int, bool> vis;
+	for(auto &p : h){
+		dis[p.first] = INF;
+		pre[p.first] = 0;
+		vis[p.first] = false;
 	}
 	dis[s] = 0;
 	pre[s] = 0;
@@ -46,30 +89,48 @@ void dij(int s){
 	}
 }
 
+void Graph::addEdge(int u, int v, int w){
+	E.push_back((edge){v, w, h[u]});
+	h[u] = (int)E.size() - 1;
+}
+
+int Graph::getDistance(int u){
+	return dis[u];	
+}
+
+int Graph::getPreviousVertex(int u){
+	return pre[u];
+}
+
+int n, m, s;
 int main(){
+	Graph G;
 	scanf("%d%d%d", &n, &m ,&s);
-	h = new int[n+1];
-	for(int i=1;i<=n;i++)h[i]=0;
-	E = new edge[m+1];
-	dis = new int[n+1];
-	vis = new bool[n+1];
-	pre = new int[n+1];
+	
+	for(int i=1;i<=n;i++){
+		G.setVertex(i);
+	}
+	
 	for(int i=1;i<=m;i++){
 		int a,b,c;
 		scanf("%d%d%d",&a,&b,&c);
-		add_edge(a,b,c);
+		G.addEdge(a,b,c);
 	}
-	dij(s);
+	
+	G.Dijkstra(s);
+	
+	puts("\ndis array");
 	for(int i=1;i<=n;i++){
-		printf("%d ", dis[i]);
+		printf("%d ", G.getDistance(i));
 	}
 	puts("");
+	
 	for(int i=1;i<=n;i++){
-		printf("第%d点的最短路径\n",i);
+		printf("the shortest path to %d\n",i);
 		int cur = i;
 		while(cur != 0){
 			printf("%d ",cur);
-			cur = pre[cur];
+			cur = G.getPreviousVertex(cur);
 		}
 		puts("");
 	}
